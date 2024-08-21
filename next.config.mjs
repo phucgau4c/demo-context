@@ -1,4 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+// next.config.mjs
+import withLinaria from "next-with-linaria";
 
-export default nextConfig;
+/** @type {import('next-with-linaria').LinariaConfig} */
+const config = {
+  // ...your next.js config
+};
+
+export default withLinaria(config);

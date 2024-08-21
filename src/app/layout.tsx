@@ -1,6 +1,7 @@
+import Header from "@/components/Header";
+import { css, cx } from "@linaria/core";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+    const globalStyle = css`
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+  `;
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cx(globalStyle)}>
+        <Header/>
+        <main>
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
